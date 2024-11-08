@@ -20,12 +20,14 @@ namespace Finance4.Controllers
         }
 
         // GET: ExpenseTypes
+        [ResponseCache(Duration = 264, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> Index()
         {
             return View(await _context.ExpenseTypes.ToListAsync());
         }
 
         // GET: ExpenseTypes/Details/5
+        [ResponseCache(Duration = 264, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

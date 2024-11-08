@@ -20,6 +20,7 @@ namespace Finance4.Controllers
         }
 
         // GET: BudgetPeriods
+        [ResponseCache(Duration = 264, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> Index()
         {
             var financeDbContext = _context.BudgetPeriods.Include(b => b.User);
@@ -27,6 +28,7 @@ namespace Finance4.Controllers
         }
 
         // GET: BudgetPeriods/Details/5
+        [ResponseCache(Duration = 264, Location = ResponseCacheLocation.Any, NoStore = false)]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

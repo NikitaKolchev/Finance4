@@ -20,12 +20,14 @@ namespace Finance4.Controllers
         }
 
         // GET: Users
+        [ResponseCache(Duration = 264, Location = ResponseCacheLocation.Any, NoStore = false)] // Кэширование данных на 250 секунд
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users.ToListAsync());
         }
 
         // GET: Users/Details/5
+        [ResponseCache(Duration = 264, Location = ResponseCacheLocation.Any, NoStore = false)] // Кэширование данных на 250 секунд
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -51,7 +53,6 @@ namespace Finance4.Controllers
 
         // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("UserId,Login,Password,Email")] User user)
@@ -82,8 +83,6 @@ namespace Finance4.Controllers
         }
 
         // POST: Users/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("UserId,Login,Password,Email")] User user)
